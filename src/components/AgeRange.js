@@ -1,12 +1,13 @@
 import React,{useState} from 'react';
 
-function AgeRange(props){
 
+function AgeRange(props){
+	
 	let [age] = useState(0);
     const handleOnChange = (event) => {
         age = event.target.value;
     }
-
+		
 	return (
         <div> 
 			<label>Enter your age:</label>
