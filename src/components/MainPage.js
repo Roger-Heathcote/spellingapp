@@ -21,18 +21,22 @@ function MainPage(){
 		updateProgress(progress+1);
 	}
 
-	const handleListSelected = (listIndex) => {
+	const handleListSelected = (listId) => {
+		console.log(listId)
 		dispatch({
-			type:"Update List Index",
-			listIndex
+			type:"Update List Id",
+			listId
 		})
 		updateProgress(progress+1);
 	}
 
+  const finished = () => {
+    updateProgress(1);
+  }
 	return (
 		(progress===0) ? <AgeRange ageHandler= {handleAgeEntered} /> :
 			(progress===1) ? <WordList listHandler= {handleListSelected} /> :
-			      <GamePlay></GamePlay>
+			      <GamePlay finished={finished}></GamePlay>
 
     )
 }

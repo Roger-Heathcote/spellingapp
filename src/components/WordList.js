@@ -18,7 +18,7 @@ function WordList({ listHandler }){
             <h1>HELLO</h1>
             <ul>
             {shortList.map( (list, index) => 
-                 <li key={index} onClick={(e) => listHandler(index)}>{list.listName}</li>
+                 <li key={index} onClick={(e) => listHandler(list.id)}>{list.listName}</li>
             )}
             </ul>
             

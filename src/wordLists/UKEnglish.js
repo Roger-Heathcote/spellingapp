@@ -129,6 +129,16 @@ const UKEnglish = [
 			"tenet",
 			"wow"
 		]
+	},
+	{
+		"id": 8,
+		"listName": "testing words",
+		"minAge": 1,
+		"maxAge": 150,
+		"listWords": [
+			"dog",
+			"cat",
+		]
 	}
 ];
 
