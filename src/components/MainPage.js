@@ -33,10 +33,14 @@ function MainPage(){
   const finished = () => {
     updateProgress(1);
   }
+
+  const goBack = () => {
+    updateProgress(progress - 1);
+  }
 	return (
 		(progress===0) ? <AgeRange ageHandler= {handleAgeEntered} /> :
-			(progress===1) ? <WordList listHandler= {handleListSelected} /> :
-			      <GamePlay finished={finished}></GamePlay>
+			(progress===1) ? <WordList listHandler= {handleListSelected} goBack = {goBack}/> :
+			      <GamePlay finished={finished} goBack = {goBack}></GamePlay>
 
     )
 }

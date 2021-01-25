@@ -1,6 +1,6 @@
 import React,{useState, useEffect, useContext} from 'react';
 import SiteContext from "../SiteContext";
-function GamePlay({finished}){
+function GamePlay({finished, goBack}){
 
     function hideQuestion() {
         console.log("I have hidden the word and enabled the text box")
@@ -68,6 +68,7 @@ function GamePlay({finished}){
   
 	return (
         <>
+            <button onClick={goBack}>Back</button>
             <div> 
                 {(displayWord) ? currentWord : "Now type that!"}
             </div>

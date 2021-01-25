@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteContext from "../SiteContext";
 
-function WordList({ listHandler }){
+function WordList({ listHandler, goBack }){
     const [state, dispatch] = React.useContext(SiteContext)
     console.log("siteState:", state.currentLists[0].listName)
 
@@ -15,6 +15,7 @@ function WordList({ listHandler }){
     // }
 	return (
         <div>
+            <button onClick={goBack}>Back</button>
             <h1>HELLO</h1>
             <ul>
             {shortList.map( (list, index) => 
