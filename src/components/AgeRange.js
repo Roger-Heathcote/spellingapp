@@ -9,15 +9,18 @@ function AgeRange(props){
         age = event.target.value; 
   }
 	const keyHandler = (event) => {
-		if(event.key === "Enter") props.ageHandler(age);
+		if(event.key === "Enter" && validateAge()) props.ageHandler(age);
   }
-  const submitAge = () => {
+  const validateAge = () => {
     if(age > 150){
       setWarning(true);
       setTimeout(() => setWarning(false), 2000);
       return false;
     }
-    props.ageHandler(age);
+    return true;
+  }
+  const submitAge = () => {
+    if(validateAge()) props.ageHandler(age);
   }
 	return (
         <div>
