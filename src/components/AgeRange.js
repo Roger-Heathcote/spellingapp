@@ -2,28 +2,45 @@ import React,{useState} from 'react';
 
 
 function AgeRange(props){
-	
-	let [age] = useState(0);
-    const handleOnChange = (event) => {
-        age = event.target.value;
-    }
+  
+  const [showWarning, setWarning] = useState(false);
+	let age = 0;
+  const handleOnChange = (event) => {
+    age = event.target.value;
+    if(!isValidAge())
+      setWarning(true);
+    else
+      setWarning(false);
+    console.log(age)
+  }
 	const keyHandler = (event) => {
-		if(event.key === "Enter") props.ageHandler(age);
-	}
+    console.log('key',age);
+    if(event.key === "Enter" && isValidAge())  
+      props.ageHandler(age)
+  }
+  const isValidAge = () => {
+    return (age > 150 || age <= 0)? false: true;
+  }
+  const submitAge = () => { 
+    if(isValidAge())
+       props.ageHandler(age);
+      
+  }
 	return (
-        <div> 
+        <div>
+           
+          <div className="warning">{(showWarning)?"Your age must be under 150 and above 0!":""}</div>
 			<label>Enter your age:</label>
 			<input
-				type="text"
+				type="number"
 				name="age"
-				id="age"
+        id="age"
+        min="1"
+        max="150"
 				onChange={(event) => handleOnChange(event)}
 				onKeyDown={keyHandler}
 			/>
-			<button onClick={(event)=>{
-				console.log("I fired!")
-				props.ageHandler(age)}
-			}>Start</button>
+			<button onClick={()=>submitAge()}>Start</button>
 		</div>
     )
 }

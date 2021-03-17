@@ -21,3 +21,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Age Range component  */
+.warning {
+  color: red;
+}
+/* Age Range component  */
