@@ -5,30 +5,29 @@ import GamePlay from "./GamePlay"
 import SiteContext from "../SiteContext";
 function MainPage(){
 
-	const [state, dispatch] = useContext(SiteContext);
-	let [progress, updateProgress] = useState(0);
-	console.log("PROGRESS IS:", progress);
-	let [list] = useState(0);
+  const [state, dispatch] = useContext(SiteContext);
+  let [progress, updateProgress] = useState(0);
+  // console.log("PROGRESS IS:", progress);
+  let [list] = useState(0);
 
-	const handleAgeEntered = (age) => {
-		// TODO validate age
-		dispatch({
-			type:"Update Age",
-			age,
-		});
+  const handleAgeEntered = (age) => {
+    // TODO validate age
+    dispatch({
+      type:"Update Age",
+      age,
+    });
+    // console.log("AGE:", age);
+    updateProgress(progress+1);
+  }
 
-    console.log("AGE:", age);
-		updateProgress(progress+1);
-	}
-
-	const handleListSelected = (listId) => {
-		console.log(listId)
-		dispatch({
-			type:"Update List Id",
-			listId
-		})
-		updateProgress(progress+1);
-	}
+  const handleListSelected = (listId) => {
+    // console.log("ID of selected list", listId)
+    dispatch({
+      type:"Update List Id",
+      listId
+    })
+    updateProgress(progress+1);
+  }
 
   const finished = () => {
     updateProgress(1);
@@ -37,11 +36,10 @@ function MainPage(){
   const goBack = () => {
     updateProgress(progress - 1);
   }
-	return (
-		(progress===0) ? <AgeRange ageHandler= {handleAgeEntered} /> :
-			(progress===1) ? <WordList listHandler= {handleListSelected} goBack = {goBack}/> :
-			      <GamePlay finished={finished} goBack = {goBack}></GamePlay>
-
+  return (
+    (progress===0) ? <AgeRange ageHandler= {handleAgeEntered} /> :
+      (progress===1) ? <WordList listHandler= {handleListSelected} goBack = {goBack}/> :
+        <GamePlay finished={finished} goBack = {goBack}></GamePlay>
     )
 }
 

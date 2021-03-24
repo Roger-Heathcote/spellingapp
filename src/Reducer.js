@@ -10,7 +10,7 @@ function updateState(state, command) {
     case 'Update List Id': {
       const { listId } = command;
       const idx = newState.currentLists.findIndex( (i)=>i.id === listId)
-      console.log("NEW INDEX IS:", idx)
+      // console.log("NEW INDEX IS:", idx)
       newState.selectedListIndex = idx;
       return newState;
     }
