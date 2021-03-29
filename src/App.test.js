@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import App from './App';
 import TestFixture from "./wordLists/TestFixture.js"
 
-const initialState = {
+const initState = {
   currentLists: TestFixture,
   age: TestFixture[0].minAge,
   selectedListIndex: 0
@@ -24,7 +24,7 @@ afterEach(() => {
 describe("<App />", () => {
   it("Happy path journey from front page to 1st correct", async () => {
     const { getByText, getByTestId, getByRole, getAllByRole } = render(<App
-      initialStateOverride={initialState}
+      initStateOverride={initState}
     />);
 
     // First page / age selection
