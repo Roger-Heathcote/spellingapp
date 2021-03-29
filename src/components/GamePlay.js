@@ -36,14 +36,14 @@ function GamePlay({finished, goBack}){
 
   const answerHandler = (event) => {
     updateAnswer(event.target.value)
-    console.log("Checking answer", event.target.value)
+    // console.log("Checking answer", event.target.value)
     if(event.target.value === currentWord) {
       // console.log("Checking answer")
       updateDisplayCorrect(true)
       setTimeout(()=>{
       // Display "Correct" for 3s then reset.
       updateDisplayCorrect(false)
-      console.log("words length: ", words.length);
+      // console.log("words length: ", words.length);
       if(words.length===0){
         finished();
         return;

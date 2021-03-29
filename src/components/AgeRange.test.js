@@ -25,7 +25,7 @@ describe("<AgeRange />", () => {
     expect(getByText(/your age must be/i)).toBeInTheDocument();
   });
 
-  // Should we also warn if non-numeric ?
+  // We also warn if non-numeric ?
 
   it("Checks that user can proceed if age is valid", async () => {
     const ageHandlerMock = jest.fn()

@@ -12,8 +12,8 @@ const initialState = {
   selectedListIndex: 0
 }
 
-describe.only("<WordList />", () => {
-  it.only("Checks proper handlers called when user clicks", () => {
+describe("<WordList />", () => {
+  it("Checks proper handlers called when user clicks", () => {
     const listSelectedCallback = jest.fn()
     const backClickedCallback = jest.fn()
     const state = JSON.parse(JSON.stringify(initialState))

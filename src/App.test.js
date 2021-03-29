@@ -1,8 +1,15 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from './App';
+import TestFixture from "./wordLists/TestFixture.js"
+
+const initialState = {
+  currentLists: TestFixture,
+  age: TestFixture[0].minAge,
+  selectedListIndex: 0
+}
 
 // Fake timers using Jest
 beforeEach(() => {
@@ -14,9 +21,11 @@ afterEach(() => {
   jest.useRealTimers()
 })
 
-describe.skip("<App />", () => {
+describe("<App />", () => {
   it("Happy path journey from front page to 1st correct", async () => {
-    const { getByText, getByTestId, getByRole, getAllByRole } = render(<App />);
+    const { getByText, getByTestId, getByRole, getAllByRole } = render(<App
+      initialStateOverride={initialState}
+    />);
 
     // First page / age selection
     userEvent.type(getByTestId('age-input'), '8')
@@ -29,14 +38,29 @@ describe.skip("<App />", () => {
     userEvent.click(firstItem)
     
     // Get answer, wait for input enabled, enter answer, verify success
-    const answerNode = getByTestId("word-display")
-    const answer = answerNode.textContent
+    const firstAnswerNode = getByTestId("word-display")
+    const firstAnswer = firstAnswerNode.textContent
     expect(getByRole('textbox')).toBeDisabled();
-    jest.advanceTimersByTime(5000)
+    act(()=> {jest.advanceTimersByTime(5000)});
     expect(getByRole('textbox')).toBeEnabled();
-    userEvent.type(getByRole('textbox'), answer)
+    userEvent.type(getByRole('textbox'), firstAnswer)
     expect(getByText('Correct!')).toBeInTheDocument()
     
+    act(()=> {jest.advanceTimersByTime(3000)});
+    const secondAnswerNode = getByTestId("word-display")
+    const secondAnswer = secondAnswerNode.textContent
+    expect(getByRole('textbox')).toBeDisabled();
+    act(()=> {jest.advanceTimersByTime(5000)});
+    expect(getByRole('textbox')).toBeEnabled();
+    userEvent.type(getByRole('textbox'), secondAnswer)
+    expect(getByText('Correct!')).toBeInTheDocument()
+    
+    act(()=> {jest.advanceTimersByTime(5000)});
+
+    // Return to list selection page
+    const wordListList = getByRole('list', {name: "list of word lists"})
+    expect(wordListList).toBeInTheDocument();
+
   });
 });
 

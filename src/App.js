@@ -6,14 +6,14 @@ import UKEnglish from "./wordLists/UKEnglish.js"
 import SiteContext from "./SiteContext.js";
 import Reducer from "./Reducer";
 
-const initialState = {
+const initState = {
     age:0,
     currentLists: UKEnglish,
     selectedListIndex: 0
 }
 
-function App() {
-  const [state, dispatch] = useReducer(Reducer, initialState);
+function App({initStateOverride}) {
+  const [state, dispatch] = useReducer(Reducer, initStateOverride || initState);
   React.useReducer()
   return (
     <SiteContext.Provider value={[state, dispatch]}>
