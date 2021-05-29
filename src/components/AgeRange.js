@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-
 function AgeRange(props) {
-
   const [showWarning, setWarning] = useState(false);
   const [age, setAge] = useState(1);
   /*
@@ -38,7 +36,6 @@ function AgeRange(props) {
   }
   return (
     <div>
-
       <div className="warning">{(showWarning) ? "Your age must be under 150 and above 0!" : ""}</div>
       <label>Enter your age:</label>
       <input
