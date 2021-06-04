@@ -11,10 +11,7 @@ function AgeRange(props) {
     setWarning(false)
   */
   useEffect(() => {
-    if (!isValidAge())
-      setWarning(true);
-    else
-      setWarning(false);
+    setWarning(!isValidAge());
   }, [age])
   //set the entered value to age during onChange event
   const handleOnChange = (event) => {
