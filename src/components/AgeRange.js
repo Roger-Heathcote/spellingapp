@@ -26,7 +26,7 @@ function AgeRange(props) {
 
 	return (
 		<div>
-			<label>Enter your age:</label>
+			<label>Please enter your age: </label>
 			<input
 				type="number"
 				name="age"
