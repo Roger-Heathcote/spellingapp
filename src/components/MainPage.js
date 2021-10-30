@@ -6,8 +6,6 @@ import SiteContext from '../SiteContext';
 function MainPage() {
 	const [, dispatch] = useContext(SiteContext);
 	let [progress, updateProgress] = useState(0);
-	// console.log("PROGRESS IS:", progress);
-	// let [list] = useState(0);
 
 	const handleAgeEntered = age => {
 		// TODO validate age
@@ -15,12 +13,10 @@ function MainPage() {
 			type: 'Update Age',
 			age
 		});
-		// console.log("AGE:", age);
 		updateProgress(progress + 1);
 	};
 
 	const handleListSelected = listId => {
-		// console.log("ID of selected list", listId)
 		dispatch({
 			type: 'Update List Id',
 			listId

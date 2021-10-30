@@ -2,22 +2,19 @@ import React, {useState, useEffect, useContext} from 'react';
 import SiteContext from '../SiteContext';
 function GamePlay({finished, goBack}) {
 	function hideQuestion() {
-		// console.log("I have hidden the word and enabled the text box")
 		setInputDisabled(false);
 		setDisplayWord(false);
 	}
 
 	const [displayWord, setDisplayWord] = useState(true);
 	useEffect(() => {
-		// console.log("Running useEffect")
-		setTimeout(hideQuestion, 5000);
+		const timer = setTimeout(hideQuestion, 5000);
+		return () => {
+			clearTimeout(timer);
+		};
 	}, [displayWord]);
 
 	const [state] = useContext(SiteContext);
-
-	// console.log("CURR LISTS:", state.currentLists)
-	// console.log("INDEX:", state.selectedListIndex)
-
 	const [words, updateWords] = useState([
 		...state.currentLists[state.selectedListIndex].listWords
 	]);
@@ -28,7 +25,6 @@ function GamePlay({finished, goBack}) {
 	let [currentWord, updateCurrentWord] = useState();
 
 	const nextWord = () => {
-		// console.log(`Next word will be ${words[0]}`)
 		updateCurrentWord(words[0]);
 		updateWords(words.slice(1));
 	};
@@ -37,14 +33,11 @@ function GamePlay({finished, goBack}) {
 
 	const answerHandler = event => {
 		updateAnswer(event.target.value);
-		// console.log("Checking answer", event.target.value)
 		if (event.target.value === currentWord) {
-			// console.log("Checking answer")
 			updateDisplayCorrect(true);
 			setTimeout(() => {
 				// Display "Correct" for 3s then reset.
 				updateDisplayCorrect(false);
-				// console.log("words length: ", words.length);
 				if (words.length === 0) {
 					finished();
 					return;
@@ -67,7 +60,7 @@ function GamePlay({finished, goBack}) {
 		<>
 			<button onClick={goBack}>Back</button>
 			<div data-testid="word-display">{displayWord ? currentWord : 'Now type that!'}</div>
-			<div id="result">{displayCorrect ? 'Correct!' : ''}</div>
+			<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
 			<input
 				type="text"
 				id="answer"
