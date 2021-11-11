@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, act} from '@testing-library/react';
+import {render, act, within} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from './App';
@@ -51,14 +51,14 @@ describe('<App />', () => {
 		/*
 			All being well, that should move us from the age selection page to the wordlist selection page.
 
-			First we check we have a button on the page, and that it says "back". Next we ask for an array of all the list items. Note we ask for everything with the role of 'listitem', we don't explicitly ask for every <li>.
+			First we check we have a button on the page, and that it says "back". Next we ask for an array of all the list items. Note we ask for everything with the role of 'listitem' and return the first, we don't explicitly ask for every <li>.
 
-			We then assign the first list item to a variable and click it, just like we did before.
+			We then extract the button it contains and click it.
 		*/
-		expect(getByRole('button')).toBeInTheDocument();
-		expect(getByRole('button')).toHaveTextContent('Back');
+		expect(getByRole('button', {name: 'Back'})).toBeInTheDocument();
 		const firstItem = getAllByRole('listitem')[0];
-		userEvent.click(firstItem);
+		const listButton = within(firstItem).getByRole('button');
+		userEvent.click(listButton);
 
 		/*
 			So now we are on the gameplay page. I gave the <div> that displays the words the name "word-display" using the data-testid attribute. Best practice is to select elements by their roles and/or labels and text content but this element currently has none of that so testid attributes it is for now! .textContent grabs the word from the <div>

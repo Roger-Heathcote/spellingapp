@@ -13,7 +13,7 @@ const initialState = {
 };
 
 describe('<WordList />', () => {
-	it('Checks proper handlers called when user clicks', () => {
+	it.only('Checks proper handlers called when user clicks', () => {
 		const listSelectedCallback = jest.fn();
 		const backClickedCallback = jest.fn();
 		const state = JSON.parse(JSON.stringify(initialState));
@@ -25,7 +25,8 @@ describe('<WordList />', () => {
 		);
 		const wordListList = getByRole('list', {name: 'list of word lists'});
 		const firstItem = within(wordListList).getAllByRole('listitem')[0];
-		userEvent.click(firstItem);
+		const listButton = within(firstItem).getByRole('button');
+		userEvent.click(listButton);
 		expect(listSelectedCallback).toHaveBeenCalledTimes(1);
 		userEvent.click(getByRole('button', {name: 'Back'}));
 		expect(backClickedCallback).toHaveBeenCalledTimes(1);
