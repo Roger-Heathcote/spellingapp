@@ -8,5 +8,6 @@
 	"bracketSpacing":false,
 	"jsxBracketSameLine":false,
 	"arrowParens":"avoid",
-	"proseWrap":"never"
+	"proseWrap":"never",
+	"endOfLine":"auto"
 }
