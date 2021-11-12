@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.5507aa8c.chunk.css",
-    "main.js": "/static/js/main.ffdf8cbe.chunk.js",
-    "main.js.map": "/static/js/main.ffdf8cbe.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.15e83a21.js",
-    "runtime-main.js.map": "/static/js/runtime-main.15e83a21.js.map",
-    "static/js/2.2e9193c9.chunk.js": "/static/js/2.2e9193c9.chunk.js",
-    "static/js/2.2e9193c9.chunk.js.map": "/static/js/2.2e9193c9.chunk.js.map",
-    "static/js/3.1c9df6be.chunk.js": "/static/js/3.1c9df6be.chunk.js",
-    "static/js/3.1c9df6be.chunk.js.map": "/static/js/3.1c9df6be.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.5507aa8c.chunk.css.map": "/static/css/main.5507aa8c.chunk.css.map",
-    "static/js/2.2e9193c9.chunk.js.LICENSE.txt": "/static/js/2.2e9193c9.chunk.js.LICENSE.txt"
+    "main.css": "/spellingapp/static/css/main.5507aa8c.chunk.css",
+    "main.js": "/spellingapp/static/js/main.ffdf8cbe.chunk.js",
+    "main.js.map": "/spellingapp/static/js/main.ffdf8cbe.chunk.js.map",
+    "runtime-main.js": "/spellingapp/static/js/runtime-main.b92641a9.js",
+    "runtime-main.js.map": "/spellingapp/static/js/runtime-main.b92641a9.js.map",
+    "static/js/2.2e9193c9.chunk.js": "/spellingapp/static/js/2.2e9193c9.chunk.js",
+    "static/js/2.2e9193c9.chunk.js.map": "/spellingapp/static/js/2.2e9193c9.chunk.js.map",
+    "static/js/3.1c9df6be.chunk.js": "/spellingapp/static/js/3.1c9df6be.chunk.js",
+    "static/js/3.1c9df6be.chunk.js.map": "/spellingapp/static/js/3.1c9df6be.chunk.js.map",
+    "index.html": "/spellingapp/index.html",
+    "static/css/main.5507aa8c.chunk.css.map": "/spellingapp/static/css/main.5507aa8c.chunk.css.map",
+    "static/js/2.2e9193c9.chunk.js.LICENSE.txt": "/spellingapp/static/js/2.2e9193c9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.15e83a21.js",
+    "static/js/runtime-main.b92641a9.js",
     "static/js/2.2e9193c9.chunk.js",
     "static/css/main.5507aa8c.chunk.css",
     "static/js/main.ffdf8cbe.chunk.js"
