@@ -6,5 +6,5 @@ To deploy your own version on github pages...
 
 - Fork the repo
 - Modify the "homepage" field of package.json to point to your fork
-- Push a tag beginning with "release" to your repo OR
-- Run the "Build and deploy to production on github pages" action directly from your fork's actions tab.
+- Push a tag beginning with "release" to your repo 
+- Alternatively run the **Build and deploy to production on github pages** action directly from your fork's actions tab.
