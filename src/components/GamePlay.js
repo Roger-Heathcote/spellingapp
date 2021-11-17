@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import SiteContext from '../SiteContext';
+import styles from './GamePlay.module.css';
+
 function GamePlay({finished, goBack}) {
 	function hideQuestion() {
 		setInputDisabled(false);
@@ -58,17 +60,28 @@ function GamePlay({finished, goBack}) {
 
 	return (
 		<>
-			<button onClick={goBack}>Back</button>
-			<div data-testid="word-display">{displayWord ? currentWord : 'Now type that!'}</div>
-			<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
-			<input
-				type="text"
-				id="answer"
-				onChange={event => answerHandler(event)}
-				disabled={inputDisabled}
-				value={answer}
-			></input>
-			<button onClick={() => remindHandler()}>Remind me</button>
+			<button className={styles.backButton} onClick={goBack}>
+				Back
+			</button>
+			<button className={styles.reminderButton} onClick={() => remindHandler()}>
+				Remind me
+			</button>
+			<div className={styles.contentFrame}>
+				<div className={styles.output}>
+					<div data-testid="word-display">
+						{displayWord ? currentWord : 'Now type that!'}
+					</div>
+					<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
+				</div>
+				<input
+					className={styles.input}
+					type="text"
+					id="answer"
+					onChange={event => answerHandler(event)}
+					disabled={inputDisabled}
+					value={answer}
+				></input>
+			</div>
 		</>
 	);
 }

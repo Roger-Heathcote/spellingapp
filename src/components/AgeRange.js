@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from './AgeRange.module.css';
 
 //validating age - age should be above 0 and equal to or below 150
 const isValidAge = age => {
@@ -25,21 +26,23 @@ function AgeRange(props) {
 	};
 
 	return (
-		<div>
-			<label>Please enter your age: </label>
-			<input
-				type="number"
-				name="age"
-				id="age"
-				min="1"
-				max="150"
-				onChange={event => handleOnChange(event)}
-				onKeyDown={keyHandler}
-				data-testid="age-input"
-			/>
-			<button onClick={() => submitAge()}>Start</button>
-			<div className="warning">
-				{showWarning ? 'Your age must be under 150 and above 0!' : ''}
+		<div className="defaultContentFrame">
+			<div className={styles.dialog}>
+				<label>Please enter your age</label>
+				<input
+					type="number"
+					name="age"
+					id="age"
+					min="1"
+					max="150"
+					onChange={event => handleOnChange(event)}
+					onKeyDown={keyHandler}
+					data-testid="age-input"
+				/>
+				<button onClick={() => submitAge()}>Start</button>
+				<div className="warning">
+					{showWarning ? 'Your age must be under 150 and above 0!' : ''}
+				</div>
 			</div>
 		</div>
 	);

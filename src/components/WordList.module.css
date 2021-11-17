@@ -1,0 +1,12 @@
+
+.wordList{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.wordList li{
+	margin: 0.125em;
+}
+span {
+	margin-bottom: 1em;
+}

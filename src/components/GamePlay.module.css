@@ -1,0 +1,24 @@
+.contentFrame {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100%;
+}
+
+.reminderButton{
+	float: right;
+}
+
+.output{
+	padding: 0.5em;
+	background: white;
+	font-size: 7vw;
+	margin-bottom: 3rem;
+	border-radius: 0.5em;
+}
+
+.input{
+	background: white;
+	width: 75%
+}

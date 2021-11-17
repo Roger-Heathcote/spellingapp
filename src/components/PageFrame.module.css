@@ -1,0 +1,13 @@
+.pageFrame {
+	display: flex;
+	flex-direction: column;
+	background: lime;
+	max-width: 1000px;
+	margin: auto;
+	height: 100%;
+}
+.content{
+	background: red;
+	height: 100%;
+	font-size: 2em;
+}

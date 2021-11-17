@@ -27,3 +27,18 @@ img {
 	color: red;
 }
 /* Age Range component  */
+input, button {
+	font-size: inherit;
+}
+
+.defaultContentFrame {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.backButton{
+	float: left;
+}
