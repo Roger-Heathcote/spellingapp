@@ -37,8 +37,10 @@ input, button {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+	clear: both;
 }
 
 .backButton{
+	display: block;
 	float: left;
 }

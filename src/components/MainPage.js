@@ -42,9 +42,9 @@ function MainPage() {
 		);
 	return (
 		<PageFrame
-			header={<h1>Spelling App!</h1>}
+			// header={<h1>Spelling App!</h1>}
 			body={content}
-			footer={<h2>Footer.</h2>}
+			// footer={<h2>Footer.</h2>}
 		></PageFrame>
 	);
 }
