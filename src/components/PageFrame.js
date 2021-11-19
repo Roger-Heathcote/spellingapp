@@ -11,7 +11,7 @@ function PageFrame({header, body, footer}) {
 			</div>
 		);
 	} else {
-		return <div className={styles.frame}>{props.children}</div>;
+		return <div className={styles.pageFrame}>{props.children}</div>;
 	}
 }
 
