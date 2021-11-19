@@ -23,6 +23,8 @@ jobs:
         run: |
           npm install
           npm run build
+        env:
+          PUBLIC_URL: https://roger-heathcote.github.io/spellingapp/
 
       # This 3rd party github actions script commits our built code 
       # to the gh-pages branch of our repo, thereby deploying it to
