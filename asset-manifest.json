@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/spellingapp/static/css/main.5507aa8c.chunk.css",
-    "main.js": "/spellingapp/static/js/main.ffdf8cbe.chunk.js",
-    "main.js.map": "/spellingapp/static/js/main.ffdf8cbe.chunk.js.map",
-    "runtime-main.js": "/spellingapp/static/js/runtime-main.b92641a9.js",
-    "runtime-main.js.map": "/spellingapp/static/js/runtime-main.b92641a9.js.map",
-    "static/js/2.2e9193c9.chunk.js": "/spellingapp/static/js/2.2e9193c9.chunk.js",
-    "static/js/2.2e9193c9.chunk.js.map": "/spellingapp/static/js/2.2e9193c9.chunk.js.map",
-    "static/js/3.1c9df6be.chunk.js": "/spellingapp/static/js/3.1c9df6be.chunk.js",
-    "static/js/3.1c9df6be.chunk.js.map": "/spellingapp/static/js/3.1c9df6be.chunk.js.map",
-    "index.html": "/spellingapp/index.html",
-    "static/css/main.5507aa8c.chunk.css.map": "/spellingapp/static/css/main.5507aa8c.chunk.css.map",
-    "static/js/2.2e9193c9.chunk.js.LICENSE.txt": "/spellingapp/static/js/2.2e9193c9.chunk.js.LICENSE.txt"
+    "main.css": "https://roger-heathcote.github.io/spellingapp/static/css/main.5507aa8c.chunk.css",
+    "main.js": "https://roger-heathcote.github.io/spellingapp/static/js/main.630eff4c.chunk.js",
+    "main.js.map": "https://roger-heathcote.github.io/spellingapp/static/js/main.630eff4c.chunk.js.map",
+    "runtime-main.js": "https://roger-heathcote.github.io/spellingapp/static/js/runtime-main.82dd1280.js",
+    "runtime-main.js.map": "https://roger-heathcote.github.io/spellingapp/static/js/runtime-main.82dd1280.js.map",
+    "static/js/2.d7056af4.chunk.js": "https://roger-heathcote.github.io/spellingapp/static/js/2.d7056af4.chunk.js",
+    "static/js/2.d7056af4.chunk.js.map": "https://roger-heathcote.github.io/spellingapp/static/js/2.d7056af4.chunk.js.map",
+    "static/js/3.fe75f979.chunk.js": "https://roger-heathcote.github.io/spellingapp/static/js/3.fe75f979.chunk.js",
+    "static/js/3.fe75f979.chunk.js.map": "https://roger-heathcote.github.io/spellingapp/static/js/3.fe75f979.chunk.js.map",
+    "index.html": "https://roger-heathcote.github.io/spellingapp/index.html",
+    "static/css/main.5507aa8c.chunk.css.map": "https://roger-heathcote.github.io/spellingapp/static/css/main.5507aa8c.chunk.css.map",
+    "static/js/2.d7056af4.chunk.js.LICENSE.txt": "https://roger-heathcote.github.io/spellingapp/static/js/2.d7056af4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b92641a9.js",
-    "static/js/2.2e9193c9.chunk.js",
+    "static/js/runtime-main.82dd1280.js",
+    "static/js/2.d7056af4.chunk.js",
     "static/css/main.5507aa8c.chunk.css",
-    "static/js/main.ffdf8cbe.chunk.js"
+    "static/js/main.630eff4c.chunk.js"
   ]
 }
