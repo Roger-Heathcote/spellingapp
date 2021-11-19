@@ -47,7 +47,7 @@ describe('<Gameplay />', () => {
 
 	/** Testing functionality: Type the correct word in the text input */
 	it('Type the first word correctly and the word "Correct!" should be displayed', async () => {
-		const {getByRole, getByTestId, getByText} = render(
+		const {getByRole, getByTestId, getByText, queryByText} = render(
 			<SiteContext.Provider value={[state, dispatch]}>
 				<GamePlay finished={finished} />
 			</SiteContext.Provider>
@@ -60,11 +60,35 @@ describe('<Gameplay />', () => {
 		expect(getByRole('textbox')).toBeEnabled();
 		expect(getByText('Now type that!')).toBeInTheDocument();
 		userEvent.type(getByRole('textbox'), firstWord);
-		await waitFor(() => expect(getByText('Correct!')).toBeInTheDocument());
+		await waitFor(() => {
+			expect(queryByText('Now type that!')).toBeNull();
+		});
+		await waitFor(() => {
+			expect(getByText('Correct!')).toBeInTheDocument();
+		});
 		act(() => {
 			jest.advanceTimersByTime(3000);
 		});
 	});
+
+	// /** Testing functionality: input field gets focus when enabled */
+	// it('When word is hidden and input enabled it should have focus', async () => {
+	// 	const {getByRole, getByTestId, getByText, queryByText} = render(
+	// 		<SiteContext.Provider value={[state, dispatch]}>
+	// 			<GamePlay finished={finished} />
+	// 		</SiteContext.Provider>
+	// 	);
+	// 	const firstWordElement = getByTestId('word-display');
+	// 	const firstWord = firstWordElement.textContent;
+	// 	act(() => {
+	// 		jest.advanceTimersByTime(5000);
+	// 	});
+	// 	expect(getByRole('textbox')).toBeEnabled();
+	// 	expect(getByRole('textbox')).toHaveFocus();
+	// 	act(() => {
+	// 		jest.advanceTimersByTime(3000);
+	// 	});
+	// });
 
 	/** Testing functionality: Type all the words correct in the input */
 	it('Type all the words correctly and check the function finished() is invoked', async () => {

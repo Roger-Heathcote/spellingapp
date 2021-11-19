@@ -8,6 +8,8 @@ function GamePlay({finished, goBack}) {
 		setDisplayWord(false);
 	}
 
+	const [altDisplay, setAltDisplay] = useState('Now type that!');
+
 	const [displayWord, setDisplayWord] = useState(true);
 	useEffect(() => {
 		const timer = setTimeout(hideQuestion, 5000);
@@ -36,9 +38,11 @@ function GamePlay({finished, goBack}) {
 	const answerHandler = event => {
 		updateAnswer(event.target.value);
 		if (event.target.value === currentWord) {
+			setAltDisplay('');
 			updateDisplayCorrect(true);
 			setTimeout(() => {
 				// Display "Correct" for 3s then reset.
+				setAltDisplay('Now type that!');
 				updateDisplayCorrect(false);
 				if (words.length === 0) {
 					finished();
@@ -68,9 +72,7 @@ function GamePlay({finished, goBack}) {
 			</button>
 			<div className={styles.contentFrame}>
 				<div className={styles.output}>
-					<div data-testid="word-display">
-						{displayWord ? currentWord : 'Now type that!'}
-					</div>
+					<div data-testid="word-display">{displayWord ? currentWord : altDisplay}</div>
 					<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
 				</div>
 				<input

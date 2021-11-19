@@ -14,7 +14,6 @@ function WordList({listHandler, goBack}) {
 			<button className="backButton" onClick={goBack}>
 				Back
 			</button>
-			<br></br>
 			<div className="defaultContentFrame">
 				<span>Choose a word list...</span>
 				<ul className={styles.wordList} aria-label="list of word lists">
