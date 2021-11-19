@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './PageFrame.module.css';
 
 function PageFrame({header, body, footer}) {
-	if (body || header) {
+	if (body || header || footer) {
 		return (
 			<div className={styles.pageFrame}>
 				{header !== undefined && <header>{header}</header>}
