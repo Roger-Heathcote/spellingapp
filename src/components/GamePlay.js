@@ -1,10 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react';
 import SiteContext from '../SiteContext';
+import styles from './GamePlay.module.css';
+
 function GamePlay({finished, goBack}) {
 	function hideQuestion() {
 		setInputDisabled(false);
 		setDisplayWord(false);
 	}
+
+	const [altDisplay, setAltDisplay] = useState('Now type that!');
 
 	const [displayWord, setDisplayWord] = useState(true);
 	useEffect(() => {
@@ -34,9 +38,11 @@ function GamePlay({finished, goBack}) {
 	const answerHandler = event => {
 		updateAnswer(event.target.value);
 		if (event.target.value === currentWord) {
+			setAltDisplay('');
 			updateDisplayCorrect(true);
 			setTimeout(() => {
 				// Display "Correct" for 3s then reset.
+				setAltDisplay('Now type that!');
 				updateDisplayCorrect(false);
 				if (words.length === 0) {
 					finished();
@@ -58,17 +64,26 @@ function GamePlay({finished, goBack}) {
 
 	return (
 		<>
-			<button onClick={goBack}>Back</button>
-			<div data-testid="word-display">{displayWord ? currentWord : 'Now type that!'}</div>
-			<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
-			<input
-				type="text"
-				id="answer"
-				onChange={event => answerHandler(event)}
-				disabled={inputDisabled}
-				value={answer}
-			></input>
-			<button onClick={() => remindHandler()}>Remind me</button>
+			<button className={styles.backButton} onClick={goBack}>
+				Back
+			</button>
+			<button className={styles.reminderButton} onClick={() => remindHandler()}>
+				Remind me
+			</button>
+			<div className={styles.contentFrame}>
+				<div className={styles.output}>
+					<div data-testid="word-display">{displayWord ? currentWord : altDisplay}</div>
+					<div data-testid="result">{displayCorrect ? 'Correct!' : ''}</div>
+				</div>
+				<input
+					className={styles.input}
+					type="text"
+					id="answer"
+					onChange={event => answerHandler(event)}
+					disabled={inputDisabled}
+					value={answer}
+				></input>
+			</div>
 		</>
 	);
 }

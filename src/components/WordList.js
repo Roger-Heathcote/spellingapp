@@ -1,5 +1,6 @@
 import React from 'react';
 import SiteContext from '../SiteContext';
+import styles from './WordList.module.css';
 
 function WordList({listHandler, goBack}) {
 	const [state] = React.useContext(SiteContext);
@@ -9,17 +10,21 @@ function WordList({listHandler, goBack}) {
 	});
 
 	return (
-		<div>
-			<button onClick={goBack}>Back</button>
-			<h1>HELLO</h1>
-			<ul aria-label="list of word lists">
-				{shortList.map((list, index) => (
-					<li key={index}>
-						<button onClick={e => listHandler(list.id)}>{list.listName}</button>
-					</li>
-				))}
-			</ul>
-		</div>
+		<>
+			<button className="backButton" onClick={goBack}>
+				Back
+			</button>
+			<div className="defaultContentFrame">
+				<span>Choose a word list...</span>
+				<ul className={styles.wordList} aria-label="list of word lists">
+					{shortList.map((list, index) => (
+						<li key={index}>
+							<button onClick={e => listHandler(list.id)}>{list.listName}</button>
+						</li>
+					))}
+				</ul>
+			</div>
+		</>
 	);
 }
 

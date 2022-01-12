@@ -1,0 +1,16 @@
+.pageFrame {
+	display: flex;
+	flex-direction: column;
+	background: wheat;
+	max-width: 1000px;
+	margin: auto;
+	height: 100%;
+}
+.content{
+	background-image: linear-gradient(to bottom right, rgb(47, 0, 255), rgb(109, 250, 238)); 
+	/* background: rgb(221, 184, 16); */
+	height: 100%;
+	/* font-size: 2em; */
+	font-size: clamp(24px, 4vw, 40px);
+
+}

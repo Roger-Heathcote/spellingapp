@@ -1,0 +1,16 @@
+.dialog{
+	background: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5em;
+}
+.dialog > *{
+	margin: 1em 1em 0em 1em;
+}
+
+.dialog > input{
+	width: 3em;
+	text-align: center;
+}
