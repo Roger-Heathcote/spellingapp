@@ -4,7 +4,7 @@ An imaginatively title app to help people memorize spellings.
 
 ![image alt](https://media.giphy.com/media/zjpavCjur4eEH42TPm/giphy.gif)
 
-Try it at: https://roger-heathcote.github.io/spellingapp/
+It's not remotely ready to use yet but if you'd like to try it you can find it here: https://roger-heathcote.github.io/spellingapp/
 
 Latest CI version here: https://affectionate-hawking-cc412b.netlify.app/
 
