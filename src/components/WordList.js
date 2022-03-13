@@ -15,7 +15,7 @@ function WordList({listHandler, goBack}) {
 				Back
 			</button>
 			<div className="defaultContentFrame">
-				<span>Choose a word list...</span>
+				<span className={styles.wordListHeader}>Choose a word list...</span>
 				<ul className={styles.wordList} aria-label="list of word lists">
 					{shortList.map((list, index) => (
 						<li key={index}>

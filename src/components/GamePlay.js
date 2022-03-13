@@ -1,15 +1,15 @@
 import React, {useState, useEffect, useContext} from 'react';
 import SiteContext from '../SiteContext';
 import styles from './GamePlay.module.css';
+import Keyboard from 'react-simple-keyboard';
+import 'react-simple-keyboard/build/css/index.css';
 
 function GamePlay({finished, goBack}) {
 	function hideQuestion() {
 		setInputDisabled(false);
 		setDisplayWord(false);
 	}
-
 	const [altDisplay, setAltDisplay] = useState('Now type that!');
-
 	const [displayWord, setDisplayWord] = useState(true);
 	useEffect(() => {
 		const timer = setTimeout(hideQuestion, 5000);
@@ -35,9 +35,10 @@ function GamePlay({finished, goBack}) {
 
 	if (!currentWord) nextWord();
 
-	const answerHandler = event => {
-		updateAnswer(event.target.value);
-		if (event.target.value === currentWord) {
+	const answerHandler = input => {
+		let userInput = input.target ? input.target.value : input;
+		updateAnswer(userInput);
+		if (userInput === currentWord) {
 			setAltDisplay('');
 			updateDisplayCorrect(true);
 			setTimeout(() => {
@@ -64,7 +65,7 @@ function GamePlay({finished, goBack}) {
 
 	return (
 		<>
-			<button className={styles.backButton} onClick={goBack}>
+			<button className="backButton" onClick={goBack}>
 				Back
 			</button>
 			<button className={styles.reminderButton} onClick={() => remindHandler()}>
@@ -83,6 +84,19 @@ function GamePlay({finished, goBack}) {
 					disabled={inputDisabled}
 					value={answer}
 				></input>
+				<Keyboard
+					onChange={event => answerHandler(event)}
+					theme={'hg-theme-default keyboard'}
+					layout={{
+						default: [
+							'q w e r t y u i o p',
+							'a s d f g h j k l',
+							'z x c v b n m',
+							'{bksp}'
+						]
+					}}
+					inputName="answer"
+				/>
 			</div>
 		</>
 	);
