@@ -44,3 +44,11 @@ input, button {
 	display: block;
 	float: left;
 }
+
+.keyboard{
+	font-size: 24px;
+}
+.hg-theme-default .hg-button  {
+	height: 70px !important;
+	width: 80px
+}

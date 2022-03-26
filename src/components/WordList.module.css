@@ -9,7 +9,7 @@
 .wordList li{
 	margin: 0.125em;
 }
-span {
+.wordListHeader{
 	margin-bottom: 1em;
 	/* flex-shrink: 5; */
 	padding: 1em;
