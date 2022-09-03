@@ -9,6 +9,7 @@ function GamePlay({finished, goBack}) {
 		setInputDisabled(false);
 		setDisplayWord(false);
 	}
+	const [keyboardInstance, setKeyboardInstance] = useState();
 	const [altDisplay, setAltDisplay] = useState('Now type that!');
 	const [displayWord, setDisplayWord] = useState(true);
 	useEffect(() => {
@@ -17,7 +18,6 @@ function GamePlay({finished, goBack}) {
 			clearTimeout(timer);
 		};
 	}, [displayWord]);
-
 	const [state] = useContext(SiteContext);
 	const [words, updateWords] = useState([
 		...state.currentLists[state.selectedListIndex].listWords
@@ -37,6 +37,7 @@ function GamePlay({finished, goBack}) {
 
 	const answerHandler = input => {
 		let userInput = input.target ? input.target.value : input;
+		keyboardInstance.setInput(userInput);
 		updateAnswer(userInput);
 		if (userInput === currentWord) {
 			setAltDisplay('');
@@ -62,7 +63,9 @@ function GamePlay({finished, goBack}) {
 		setInputDisabled(true);
 		setTimeout(hideQuestion, 5000);
 	};
-
+	const handleOnInitKeyboard = keyboard => {
+		setKeyboardInstance(keyboard);
+	};
 	return (
 		<>
 			<button className="backButton" onClick={goBack}>
@@ -83,6 +86,7 @@ function GamePlay({finished, goBack}) {
 					onChange={event => answerHandler(event)}
 					disabled={inputDisabled}
 					value={answer}
+					name="answer"
 				></input>
 				<Keyboard
 					onChange={event => answerHandler(event)}
@@ -95,7 +99,8 @@ function GamePlay({finished, goBack}) {
 							'{bksp}'
 						]
 					}}
-					inputName="answer"
+					inputName="keyboard"
+					onInit={keyboard => handleOnInitKeyboard(keyboard)}
 				/>
 			</div>
 		</>
