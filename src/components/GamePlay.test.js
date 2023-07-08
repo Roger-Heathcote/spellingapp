@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, act, waitFor} from '@testing-library/react';
+import {render, act, waitFor, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SiteContext from '../SiteContext';
 import GamePlay from './GamePlay.js';
@@ -71,24 +71,40 @@ describe('<Gameplay />', () => {
 		});
 	});
 
-	// /** Testing functionality: input field gets focus when enabled */
-	// it('When word is hidden and input enabled it should have focus', async () => {
-	// 	const {getByRole, getByTestId, getByText, queryByText} = render(
-	// 		<SiteContext.Provider value={[state, dispatch]}>
-	// 			<GamePlay finished={finished} />
-	// 		</SiteContext.Provider>
-	// 	);
-	// 	const firstWordElement = getByTestId('word-display');
-	// 	const firstWord = firstWordElement.textContent;
-	// 	act(() => {
-	// 		jest.advanceTimersByTime(5000);
-	// 	});
-	// 	expect(getByRole('textbox')).toBeEnabled();
-	// 	expect(getByRole('textbox')).toHaveFocus();
-	// 	act(() => {
-	// 		jest.advanceTimersByTime(3000);
-	// 	});
-	// });
+	/** Testing functionality: input field gets focus when enabled */
+	it('When word is hidden and input enabled it should have focus', async () => {
+		const {getByTestId} = render(
+			<SiteContext.Provider value={[state, dispatch]}>
+				<GamePlay />
+			</SiteContext.Provider>
+		);
+		act(() => {
+			jest.advanceTimersByTime(5000);
+		});
+		expect(getByTestId('answer')).toBeEnabled();
+		await waitFor(() => {
+			expect(getByTestId('answer')).toHaveFocus();
+		});
+	});
+
+	/** Testing functionality: input field gets focus when enabled */
+	it('After clicking Remind me button, the input enabled it should have focus', async () => {
+		const {getByRole, getByTestId} = render(
+			<SiteContext.Provider value={[state, dispatch]}>
+				<GamePlay finished={finished} />
+			</SiteContext.Provider>
+		);
+		act(() => {
+			jest.advanceTimersByTime(5000);
+		});
+		userEvent.click(getByRole('button', {name: 'Remind me'}));
+		act(() => {
+			jest.advanceTimersByTime(3000);
+		});
+		await waitFor(() => {
+			expect(getByTestId('answer')).toHaveFocus();
+		});
+	});
 
 	/** Testing functionality: Type all the words correct in the input */
 	it('Type all the words correctly and check the function finished() is invoked', async () => {
