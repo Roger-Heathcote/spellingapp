@@ -1,13 +1,15 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext, useRef} from 'react';
 import SiteContext from '../SiteContext';
 import styles from './GamePlay.module.css';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 
 function GamePlay({finished, goBack}) {
+	const inputRef = useRef(null);
 	function hideQuestion() {
 		setInputDisabled(false);
 		setDisplayWord(false);
+		inputRef.current.focus();
 	}
 	const [keyboardInstance, setKeyboardInstance] = useState();
 	const [altDisplay, setAltDisplay] = useState('Now type that!');
@@ -82,11 +84,12 @@ function GamePlay({finished, goBack}) {
 				<input
 					className={styles.input}
 					type="text"
-					id="answer"
+					data-testid="answer"
 					onChange={event => answerHandler(event)}
 					disabled={inputDisabled}
 					value={answer}
 					name="answer"
+					ref={inputRef}
 				></input>
 				<Keyboard
 					onChange={event => answerHandler(event)}
